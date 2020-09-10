@@ -24,6 +24,9 @@ const PokemonApiFetch = () => {
     //Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
+    if (!pokemons) {
+        return <h2>Loading...</h2>
+    }
     return (
         <>
             <Page pokemons={currentPokemons}/>

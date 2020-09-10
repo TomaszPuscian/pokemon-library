@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button, PaginationNav} from "../../Styled Components/styled-components";
 
 const Pagination = ({pokemonsPerPage, totalPokemons, paginate}) => {
     const pageNumbers = [];
@@ -7,15 +8,15 @@ const Pagination = ({pokemonsPerPage, totalPokemons, paginate}) => {
     }
 
     return (
-        <nav>
+        <PaginationNav>
             {pageNumbers.map(number =>(
-                <li key={number}>
-                    <button onClick={() => paginate(number)}>
+
+                    <Button onClick={() => paginate(number)}>
                         {number}
-                    </button>
-                </li>
+                    </Button>
+
             ))}
-        </nav>
+        </PaginationNav>
     )
 }
 

@@ -1,23 +1,36 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios'
-//tutaj axios all - masz tablicę URLów. zobacz co wyjdzie z tego axios alla i działaj dalej
-const Page = ({ pokemons }) => {
-    if (!pokemons) {
-        return <h2>Loading</h2>
-    }
+import {PageElement} from "../PageElement/PageElement";
+import {PageHeader} from "../PageHeaderElement/PageHeaderElement";
+import {Container} from "../../Styled Components/styled-components";
 
-    axios.all(pokemons.url)
-        .then(axios.spread((...responses) => {
-            responses.forEach(res => console.log('Success'))
-            console.log('submitted all axios calls');
-        }))
+const Page = ({ pokemons }) => {
+    const [pokemonData, setPokemonData] = useState([]);
+    const [pokemonEvolutionData, setPokemonEvolutionData] = useState([])
+
+    useEffect(() => {
+        const pokemonsURL = [];
+        pokemons.forEach(pokemon => pokemonsURL.push(axios.get(pokemon.url)));
+
+        axios.all(pokemonsURL)
+            .then(response => setPokemonData(response))
+    }, [pokemons])
+
+    useEffect(() => {
+        const pokemonEvoURL = [];
+        pokemonData.forEach(pokemon => pokemonEvoURL.push(axios.get(`https://pokeapi.co/api/v2/evolution-chain/${pokemon.data.id}/`)))
+
+        axios.all(pokemonEvoURL)
+            .then(response => setPokemonEvolutionData(response))
+    }, [pokemonData])
 
     return (
-        <ul>
-            {pokemons.map(pokemons => (
-                <li key={pokemons.name}>{pokemons.url}</li>
-            ))}
-        </ul>
+        <div>
+            <PageHeader />
+            <PageElement
+                pokemonData={pokemonData}
+                pokemonEvolutionData={pokemonEvolutionData} />
+        </div>
     )
 }
 
