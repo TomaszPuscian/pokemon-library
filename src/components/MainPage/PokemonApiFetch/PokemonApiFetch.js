@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {Page} from "../Page/Page";
-import {Pagination} from "../Pagination/Pagination";
+import Page from "../Page";
+import Pagination from "../Pagination";
 
 const PokemonApiFetch = () => {
     const [pokemons, setPokemons] = useState("");

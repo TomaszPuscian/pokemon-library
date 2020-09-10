@@ -67,8 +67,8 @@ const PaginationNav = styled.nav`
 `
 
 const Button = styled.button`
-    width: 1.5em;
-    height: 1.5em;
+    width: ${props => props.width}
+    height: ${props => props.height}
     font-family: 'Anton', sans-serif;
     font-size: 1.5em;
     background-color: #edc70a;

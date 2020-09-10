@@ -1,6 +1,6 @@
 import React from 'react';
-import {PageListHeader} from "../../Styled Components/styled-components";
-import {PageHeaderElement, PageHeaderElementID} from "../../Styled Components/styled-components";
+import {PageListHeader, PageHeaderElement, PageHeaderElementID} from "../../Styled Components/styled-components";
+
 
 const PageHeader = () => {
 

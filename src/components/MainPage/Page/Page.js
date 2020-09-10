@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
-import {PageElement} from "../PageElement/PageElement";
-import {PageHeader} from "../PageHeaderElement/PageHeaderElement";
-import {Container} from "../../Styled Components/styled-components";
+import PageElement from "../PageElement";
+import PageHeader from "../PageHeader";
+
 
 const Page = ({ pokemons }) => {
     const [pokemonData, setPokemonData] = useState([]);
