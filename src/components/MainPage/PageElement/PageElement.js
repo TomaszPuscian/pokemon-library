@@ -9,7 +9,7 @@ import {
 
 const PageElement = ({pokemonData, pokemonEvolutionData}) => {
     return (
-        <PageListContainer>
+        <div>
             {pokemonData.map(pokemon => (
                 <PageList>
                     <PageListElementID>
@@ -32,7 +32,7 @@ const PageElement = ({pokemonData, pokemonEvolutionData}) => {
                     </PageListElement>
                 </PageList>
             ))}
-        </PageListContainer>
+        </div>
     )
 }
 

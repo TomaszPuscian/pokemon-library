@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const MainPageContainer = styled.div`
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     `
 
-const Container = styled.div`
+const PageContainer = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -16,15 +16,13 @@ const Container = styled.div`
 const LeftImageContainer = styled.div`
     width: 50%;
     height: 100vh;
-    `;
+    `
 
 const LeftImage = styled.img`
     width:100%;
     height: 100%;
 `
-const PageListContainer = styled.div`
-   
-`
+
 const PageList = styled.ul`
     display: flex;
     width: 100%;
@@ -35,9 +33,9 @@ const PageList = styled.ul`
 `
 
 const PageListHeader = styled(PageList)`
-    font-family: 'Anton', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     background-color: #edc70a;
-    `;
+    `
 
 
 const PageListElement = styled.li`
@@ -67,9 +65,9 @@ const PaginationNav = styled.nav`
 `
 
 const Button = styled.button`
-    width: ${props => props.width}
-    height: ${props => props.height}
-    font-family: 'Anton', sans-serif;
+    width: ${props => props.width};
+    height: ${props => props.height};
+    font-family: 'Titillium Web', sans-serif;
     font-size: 1.5em;
     background-color: #edc70a;
     color: #0000ab;
@@ -85,7 +83,39 @@ const PageHeaderElementID = styled(PageHeaderElement)`
 const PageListElementID = styled(PageListElement)`
     width: 8.3%
 `
+//Details page styling
 
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0000ab
+`
 
-export {MainPageContainer, Container, LeftImageContainer, PageListContainer, PageList, PageListHeader, PageListElement,
-    PageHeaderElement, LeftImage, PokemonImage, PageHeaderElementID, PageListElementID, PaginationNav, Button}
+const DetailsPageContainer = styled(Container)`
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    flex-direction: column;
+`
+
+const NavigationContainer = styled(Container)`
+    width: 100%;
+    justify-content: space-between;
+`
+
+const DetailedInfoElement = styled.div`
+    width: 33.333%
+`
+
+const TableHeader = styled(PageListHeader);
+
+export {
+    //Main page styling
+    MainPageContainer, PageContainer, LeftImageContainer, PageList, PageListHeader, PageListElement,
+    PageHeaderElement, LeftImage, PokemonImage, PageHeaderElementID, PageListElementID, PaginationNav, Button,
+    //Details page styling
+    Container, DetailsPageContainer, NavigationContainer, DetailedInfoElement, TableHeader
+}
+
+//PageListContainer usunąłeś, check for bugs
