@@ -4,9 +4,8 @@ import PageElement from "../PageElement";
 import PageHeader from "../PageHeader";
 
 
-const Page = ({ pokemons }) => {
+const Page = ({ pokemons, showDetails }) => {
     const [pokemonData, setPokemonData] = useState([]);
-    const [pokemonEvolutionData, setPokemonEvolutionData] = useState([])
 
     useEffect(() => {
         const pokemonsURL = [];
@@ -16,20 +15,14 @@ const Page = ({ pokemons }) => {
             .then(response => setPokemonData(response))
     }, [pokemons])
 
-    useEffect(() => {
-        const pokemonEvoURL = [];
-        pokemonData.forEach(pokemon => pokemonEvoURL.push(axios.get(`https://pokeapi.co/api/v2/evolution-chain/${pokemon.data.id}/`)))
 
-        axios.all(pokemonEvoURL)
-            .then(response => setPokemonEvolutionData(response))
-    }, [pokemonData])
 
     return (
         <div>
             <PageHeader />
             <PageElement
                 pokemonData={pokemonData}
-                pokemonEvolutionData={pokemonEvolutionData} />
+                showDetails={showDetails}/>
         </div>
     )
 }

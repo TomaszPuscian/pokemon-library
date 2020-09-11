@@ -7,11 +7,11 @@ import {
 } from "../../Styled Components/styled-components";
 
 
-const PageElement = ({pokemonData, pokemonEvolutionData}) => {
+const PageElement = ({pokemonData, showDetails}) => {
     return (
         <div>
             {pokemonData.map(pokemon => (
-                <PageList>
+                <PageList onClick={showDetails}>
                     <PageListElementID>
                         {pokemon.data.id}
                     </PageListElementID>

@@ -3,10 +3,11 @@ import styled from 'styled-components';
 const MainPageContainer = styled.div`
     font-family: 'Roboto', sans-serif;
     display: flex;
+    box-sizing: border-box
     `
 
 const PageContainer = styled.div`
-    width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,13 +15,11 @@ const PageContainer = styled.div`
     `
 
 const LeftImageContainer = styled.div`
-    width: 50%;
-    height: 100vh;
+    width: 50vw;
     `
 
 const LeftImage = styled.img`
-    width:100%;
-    height: 100%;
+    width:90%;
 `
 
 const PageList = styled.ul`
@@ -30,11 +29,17 @@ const PageList = styled.ul`
     padding: 0 1em;
     background-color: #DADAFB;
     list-style-type: none;
+    cursor: pointer;
+    &:hover {
+        background-color: #0B435B;
 `
 
 const PageListHeader = styled(PageList)`
     font-family: 'Titillium Web', sans-serif;
     background-color: #edc70a;
+    cursor: auto;
+    &:hover {
+        background-color: #edc70a;
     `
 
 

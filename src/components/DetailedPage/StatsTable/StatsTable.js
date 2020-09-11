@@ -1,7 +1,7 @@
 import React from 'react';
 import {DetailedInfoElement} from "../../Styled Components/styled-components";
 
-const StatsTable = () => {
+const StatsTable = ({pokemon}) => {
 
     return (
         <DetailedInfoElement>
@@ -12,30 +12,12 @@ const StatsTable = () => {
                     </tr>
                 </thead>
                 <tbody>
+                {pokemon.stats.map(pokemon => (
                     <tr>
-                       <td>Stat</td>
-                       <td>res</td>
+                        <td key={pokemon.stat.name}>{pokemon.stat.name}</td>
+                        <td key={pokemon.base_stat}>{pokemon.base_stat}</td>
                     </tr>
-                    <tr>
-                        <td>Stat</td>
-                        <td>res</td>
-                    </tr>
-                    <tr>
-                        <td>Stat</td>
-                        <td>res</td>
-                    </tr>
-                    <tr>
-                        <td>Stat</td>
-                        <td>res</td>
-                    </tr>
-                    <tr>
-                        <td>Stat</td>
-                        <td>res</td>
-                    </tr>
-                    <tr>
-                        <td>Stat</td>
-                        <td>res</td>
-                    </tr>
+                ))}
                 </tbody>
             </table>
         </DetailedInfoElement>
