@@ -4,22 +4,21 @@ import Pokemon from "../Pokemon";
 import Navigation from "../Navigation";
 import {DetailsPageContainer} from "../../Styled Components/styled-components";
 
-const Details = () => {
+const Details = ({showMain, id, name}) => {
+
+    //Change id after clicking "next" button
+    const nextPokemon = id => {
+        const newId = id++;
+        if (newId.isNumber) return newId;
+    }
 
     return (
         <DetailsPageContainer>
             <Header/>
-            <Pokemon/>
-            <Navigation/>
+            <Pokemon id={id} newId={nextPokemon}/>
+            <Navigation showMain={showMain} id={id} name={name} nextPokemon={nextPokemon}/>
         </DetailsPageContainer>
     )
 }
 
 export {Details};
-
-//1. Ogarnąć routing dynamiczny - tworzyć podstrony na podstawie ID
-//2. Wykminić, jak fetchować te dane w ogóle xD pewnie jakiś axios na Mainie
-//3. Znajdź te odpowiednie dane i je pogrupuj
-//4. Pamiętaj o ewolucji!!!
-//5. Napisz logikę obsługi guzików - może offset?
-//6. Statystyki będą inne, też je bależy rozkminić

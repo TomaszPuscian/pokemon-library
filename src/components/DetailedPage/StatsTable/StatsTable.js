@@ -1,43 +1,34 @@
 import React from 'react';
-import {DetailedInfoElement} from "../../Styled Components/styled-components";
+import {
+    DetailedInfoElement,
+    Table,
+    TableD,
+    TableHead,
+    TableHeader,
+    TableRow,
+    TableH, TableNumber
+} from "../../Styled Components/styled-components";
 
-const StatsTable = () => {
+const StatsTable = ({pokemon}) => {
 
     return (
         <DetailedInfoElement>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Przyrosty</th>
-                    </tr>
-                </thead>
+            <Table>
+                <TableHead>
+                    <TableHeader>
+                        <TableH>Przyrosty</TableH>
+                        <TableH/>
+                    </TableHeader>
+                </TableHead>
                 <tbody>
-                    <tr>
-                       <td>Stat</td>
-                       <td>res</td>
-                    </tr>
-                    <tr>
-                        <td>Stat</td>
-                        <td>res</td>
-                    </tr>
-                    <tr>
-                        <td>Stat</td>
-                        <td>res</td>
-                    </tr>
-                    <tr>
-                        <td>Stat</td>
-                        <td>res</td>
-                    </tr>
-                    <tr>
-                        <td>Stat</td>
-                        <td>res</td>
-                    </tr>
-                    <tr>
-                        <td>Stat</td>
-                        <td>res</td>
-                    </tr>
+                {pokemon.stats.map(pokemon => (
+                    <TableRow>
+                        <TableD key={pokemon.stat.name}>{pokemon.stat.name}</TableD>
+                        <TableNumber key={pokemon.base_stat}>{pokemon.base_stat}</TableNumber>
+                    </TableRow>
+                ))}
                 </tbody>
-            </table>
+            </Table>
         </DetailedInfoElement>
     )
 }

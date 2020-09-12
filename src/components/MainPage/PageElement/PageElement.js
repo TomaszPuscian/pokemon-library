@@ -1,33 +1,37 @@
 import React from "react";
 import {
-    PageListContainer,
     PageList,
     PageListElement,
     PageListElementID, PokemonImage
 } from "../../Styled Components/styled-components";
 
 
-const PageElement = ({pokemonData, pokemonEvolutionData}) => {
+const PageElement = ({pokemonData, showDetails, sendID, sendName}) => {
+
     return (
         <div>
             {pokemonData.map(pokemon => (
-                <PageList>
-                    <PageListElementID>
+                <PageList onClick={() => {
+                    sendID(pokemon.data.id);
+                    sendName(pokemon.data.name);
+                    showDetails()
+                }}>
+                    <PageListElementID key={pokemon.data.id}>
                         {pokemon.data.id}
                     </PageListElementID>
-                    <PageListElement>
+                    <PageListElement key={pokemon.data.sprites.front_default}>
                         <PokemonImage src={pokemon.data.sprites.front_default} alt="pokemon sprite" />
                     </PageListElement>
-                    <PageListElement>
+                    <PageListElement key={pokemon.data.name}>
                         {pokemon.data.name}
                     </PageListElement>
-                    <PageListElement>
+                    <PageListElement key={pokemon.data.stats[0].base_stat}>
                         001
                     </PageListElement>
-                    <PageListElement>
+                    <PageListElement key={pokemon.data.types[0].type.name}>
                         {pokemon.data.types[0].type.name}
                     </PageListElement>
-                    <PageListElement>
+                    <PageListElement key={pokemon.data.weight}>
                         Ivosaur
                     </PageListElement>
                 </PageList>
@@ -37,3 +41,5 @@ const PageElement = ({pokemonData, pokemonEvolutionData}) => {
 }
 
 export {PageElement}
+
+//Niestety, nie udało mi się podłączyć danych o ewolucji pokemonów (min. lvl i następna forma

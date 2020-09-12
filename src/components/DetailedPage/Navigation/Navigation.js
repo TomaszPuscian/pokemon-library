@@ -1,19 +1,21 @@
 import React from 'react';
-import {Button, NavigationContainer} from "../../Styled Components/styled-components";
+import {Name, NavButton, NavigationContainer} from "../../Styled Components/styled-components";
 
-const Navigation = () => {
+const Navigation = ({showMain, id, name, nextPokemon}) => {
 
     return (
         <NavigationContainer>
-            <Button>
+            <NavButton width="50" height="50" onClick={showMain}>
+                &#8701;
                 Powrót
-            </Button>
-            <span>
-                Imię
-            </span>
-            <Button>
+            </NavButton>
+            <Name>
+                {id < 9 ? `00${id}` : `0${id}`} {name}
+            </Name>
+            <NavButton onClick={nextPokemon}>
                 Następny
-            </Button>
+                &#8702;
+            </NavButton>
         </NavigationContainer>
     )
 }
