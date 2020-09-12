@@ -4,7 +4,7 @@ import PageElement from "../PageElement";
 import PageHeader from "../PageHeader";
 
 
-const Page = ({ pokemons, showDetails }) => {
+const Page = ({ pokemons, showDetails, sendID, sendName }) => {
     const [pokemonData, setPokemonData] = useState([]);
 
     useEffect(() => {
@@ -15,14 +15,14 @@ const Page = ({ pokemons, showDetails }) => {
             .then(response => setPokemonData(response))
     }, [pokemons])
 
-
-
     return (
         <div>
             <PageHeader />
             <PageElement
                 pokemonData={pokemonData}
-                showDetails={showDetails}/>
+                showDetails={showDetails}
+                sendID={sendID}
+                sendName={sendName}/>
         </div>
     )
 }

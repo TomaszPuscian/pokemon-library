@@ -3,7 +3,7 @@ import axios from "axios";
 import Page from "../Page";
 import Pagination from "../Pagination";
 
-const PokemonApiFetch = ({showDetails}) => {
+const PokemonApiFetch = ({showDetails, sendID, sendName}) => {
     const [pokemons, setPokemons] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [pokemonsPerPage] = useState(6);
@@ -21,12 +21,13 @@ const PokemonApiFetch = ({showDetails}) => {
     //Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
+
     if (!pokemons) {
         return <h2>Loading...</h2>
     }
     return (
         <>
-            <Page pokemons={currentPokemons} showDetails={showDetails}/>
+            <Page pokemons={currentPokemons} showDetails={showDetails} sendID={sendID} sendName={sendName}/>
             <Pagination
                 pokemonsPerPage={pokemonsPerPage}
                 totalPokemons={pokemons}

@@ -1,25 +1,34 @@
 import React from 'react';
-import {DetailedInfoElement} from "../../Styled Components/styled-components";
+import {
+    DetailedInfoElement,
+    Table,
+    TableD,
+    TableHead,
+    TableHeader,
+    TableRow,
+    TableH, TableNumber
+} from "../../Styled Components/styled-components";
 
 const StatsTable = ({pokemon}) => {
 
     return (
         <DetailedInfoElement>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Przyrosty</th>
-                    </tr>
-                </thead>
+            <Table>
+                <TableHead>
+                    <TableHeader>
+                        <TableH>Przyrosty</TableH>
+                        <TableH/>
+                    </TableHeader>
+                </TableHead>
                 <tbody>
                 {pokemon.stats.map(pokemon => (
-                    <tr>
-                        <td key={pokemon.stat.name}>{pokemon.stat.name}</td>
-                        <td key={pokemon.base_stat}>{pokemon.base_stat}</td>
-                    </tr>
+                    <TableRow>
+                        <TableD key={pokemon.stat.name}>{pokemon.stat.name}</TableD>
+                        <TableNumber key={pokemon.base_stat}>{pokemon.base_stat}</TableNumber>
+                    </TableRow>
                 ))}
                 </tbody>
-            </table>
+            </Table>
         </DetailedInfoElement>
     )
 }

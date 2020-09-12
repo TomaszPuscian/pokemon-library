@@ -11,7 +11,7 @@ const Pagination = ({pokemonsPerPage, totalPokemons, paginate}) => {
         <PaginationNav>
             {pageNumbers.map(number =>(
 
-                    <Button onClick={() => paginate(number)}>
+                    <Button key={number} onClick={() => paginate(number)}>
                         {number}
                     </Button>
 

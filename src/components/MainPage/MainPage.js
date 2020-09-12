@@ -7,13 +7,18 @@ import {Details} from "../DetailedPage/Details/Details";
 
 
 const MainPage = () => {
-    const [isDetails, setIsDetails] = useState(true)
+    const [isDetails, setIsDetails] = useState(false)
+    const [id, setId] = useState('');
+    const [name, setName] = useState('');
 
     const showDetails = () => setIsDetails(true);
+    const showMain = () => setIsDetails(false);
 
-    console.log(isDetails);
+    //Send ID and name to Details
+    const sendID = (pokemonId) => setId(pokemonId);
+    const sendName = (pokemonName) => setName(pokemonName);
 
-    if (isDetails) return <Details />
+    if (isDetails) return <Details showMain={showMain} id={id} name={name} />
     return (
         <>
             <MainPageContainer>
@@ -22,7 +27,7 @@ const MainPage = () => {
                 </LeftImageContainer>
                 <PageContainer>
                     <Header />
-                    <PokemonApiFetch showDetails={showDetails}/>
+                    <PokemonApiFetch showDetails={showDetails} sendID={sendID} sendName={sendName}/>
                 </PageContainer>
             </MainPageContainer>
         </>
